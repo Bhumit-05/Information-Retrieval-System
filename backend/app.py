@@ -1,4 +1,3 @@
-# app.py
 import json
 import pickle
 from scipy.sparse import load_npz
