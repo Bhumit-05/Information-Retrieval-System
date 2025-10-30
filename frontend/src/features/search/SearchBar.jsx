@@ -13,7 +13,7 @@ function SearchBar({ query, setQuery, onSearch, isLoading }) {
       <button
         type="submit"
         disabled={isLoading}
-        className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 disabled:bg-gray-400"
+        className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 disabled:bg-gray-400 hover:cursor-pointer"
       >
         {isLoading ? '...' : 'Search'}
       </button>

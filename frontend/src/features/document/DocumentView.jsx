@@ -5,15 +5,12 @@ import ErrorMessage from '../../components/ErrorMessage';
 import LoadingIndicator from '../../components/LoadingIndicator';
 
 function DocumentView() {
-  // --- Component-level state ---
   const [doc, setDoc] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // 1. Get the 'docId' from the URL
   const { docId } = useParams();
 
-  // 2. Fetch data when the component loads
   useEffect(() => {
     const fetchDocument = async () => {
       setIsLoading(true);
@@ -27,7 +24,7 @@ function DocumentView() {
           throw new Error(errorMessage);
         }
         const data = await response.json();
-        setDoc(data); // Store the full document object in state
+        setDoc(data);
       } catch (err) {
         setError(`Failed to fetch document: ${err.message}.`);
         console.error(err);
@@ -37,9 +34,8 @@ function DocumentView() {
     };
 
     fetchDocument();
-  }, [docId]); // Re-run this effect if docId changes
+  }, [docId]);
 
-  // --- 3. Render component state ---
   if (isLoading) {
     return <LoadingIndicator message="Loading document..." />;
   }
@@ -49,13 +45,11 @@ function DocumentView() {
   }
 
   if (!doc) {
-    return null; // Should be covered by loading/error
+    return null;
   }
 
-  // --- 4. Render the document view ---
   return (
     <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
-      {/* Use <Link> for the back button */}
       <Link
         to="/"
         className="mb-4 inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-sm hover:bg-blue-700"

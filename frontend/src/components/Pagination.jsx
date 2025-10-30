@@ -1,11 +1,10 @@
 import React from 'react';
 
-// --- We'll add a helper component for the pagination ---
 function Pagination({ currentPage, totalResults, resultsPerPage, onPageChange }) {
   const totalPages = Math.ceil(totalResults / resultsPerPage);
 
   if (totalPages <= 1) {
-    return null; // Don't show pagination if there's only one page
+    return null;
   }
 
   const handlePrev = () => {

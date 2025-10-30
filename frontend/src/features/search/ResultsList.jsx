@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // 1. Import Link
+import { Link } from 'react-router-dom';
 
 function ResultsList({ results, currentResults }) {
   if (!results.length) {
     return null;
   }
-  console.log(results);
 
   return (
     <div className="space-y-4">
@@ -14,13 +13,11 @@ function ResultsList({ results, currentResults }) {
       </div>
 
       {currentResults.map((result) => (
-        // A single result item
         <div key={result.doc_id} className="bg-white p-5 rounded-lg shadow border border-gray-200">
           <span className="text-sm font-medium text-blue-600">
             DOC ID: {result.doc_id} (Score: {result.score.toFixed(4)})
           </span>
           
-          {/* 2. Replace <h2> with <Link> */}
           <Link to={`/doc/${result.doc_id}`}>
             <h2 className="text-xl font-semibold text-gray-900 mt-1 cursor-pointer hover:underline">
               {result.title}
